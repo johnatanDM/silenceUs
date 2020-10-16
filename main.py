@@ -13,7 +13,7 @@ class MyClient(discord.Client):
             return
 
         if message.content == '!playing' or message.content == '!p':
-            #Improvement: Verify if the bot has mute permission
+            #Improvement: Verify if the bot has mute permission!
             if message.author.voice and message.author.voice.channel:
                 channel = message.author.voice.channel
                 for member in channel.members:
