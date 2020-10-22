@@ -6,6 +6,9 @@ token = os.getenv("tokenSilenceUs")
 class MyClient(discord.Client):
     async def on_ready(self):
         print('Logged on as', self.user)
+        servers = len(self.guilds)
+        activity=discord.Activity(type=discord.ActivityType.watching, name=f"{servers} servidores lotados de impostores")
+        await self.change_presence(activity=activity)
 
     async def on_message(self, message):
         # don't respond to ourselves
@@ -33,6 +36,7 @@ class MyClient(discord.Client):
             else:
                 await message.channel.send("You are not connected to a voice channel")
                 return
+        
 
 client = MyClient()
 client.run(token)
