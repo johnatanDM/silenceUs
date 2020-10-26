@@ -15,6 +15,12 @@ class MyClient(discord.Client):
         if message.author == self.user:
             return
 
+        if message.content == '!help' or '!ajuda':
+          msg = '''
+                Olá estou aqui para lhe ajudar em suas jogatinas de Among Us!
+                Tenha certeza
+          '''
+
         if message.content == '!playing' or message.content == '!p':
             #Improvement: Verify if the bot has mute permission!
             if message.author.voice and message.author.voice.channel:
